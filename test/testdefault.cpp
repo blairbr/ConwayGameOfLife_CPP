@@ -27,3 +27,17 @@ TEST(neighbors, liveCellWithMoreThanThreeLiveNeighborsDies) {
 
     EXPECT_EQ(applyRules(cellIsAlive, neighborCount), false);
 }
+TEST(neighbors, deadCellWithThreeNeighborsComesToLife) {
+    bool cellIsAlive = false;
+    int neighborCount = 3;
+
+    EXPECT_EQ(applyRules(cellIsAlive, neighborCount), true);
+
+}
+TEST(neighbors, deadCellWithTwoNeighborsStaysDead) {
+    bool cellIsAlive = false;
+    int neighborCount = 2;
+
+    EXPECT_EQ(applyRules(cellIsAlive, neighborCount), false);
+
+}

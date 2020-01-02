@@ -18,12 +18,16 @@ int countNeighbors(bool grid[NUM_ROWS][NUM_COLS], int row, int col) {
     int neighbors = 0;
     if(grid[row][col+1] == true)
     {
-        neighbors+= 1;
+        neighbors++;
     }
     if(grid[row][col-1] == true)
     {
-        neighbors+= 1;
+        neighbors++;
     }
-
+    if(grid[row-1][col] == true)
+    {
+        neighbors++;
+    }
+    
     return neighbors;
 }

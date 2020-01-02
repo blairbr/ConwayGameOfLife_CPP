@@ -3,7 +3,6 @@
 
 using namespace ::testing;
 
-
 TEST(neighbors, liveCellWithFewerThanTwoLiveNeighborsDies) {
     bool cellIsAlive = true;
     int neighborCount = 1;
@@ -79,5 +78,17 @@ TEST(neighbors, returnsTwoIfLeftAndRightNeighborsAlive) {
     int col = 1;
 
     EXPECT_EQ(countNeighbors(grid, row, col), 2);
+
+}
+TEST(neighbors, returnsOneIfOnlyTopNeighborIsAlive) {
+
+    bool grid[NUM_ROWS][NUM_COLS] = {false};
+
+    grid[0][1] = true;
+
+    int row = 1;
+    int col = 1;
+
+    EXPECT_EQ(countNeighbors(grid, row, col), 1);
 
 }

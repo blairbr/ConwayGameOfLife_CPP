@@ -92,3 +92,15 @@ TEST(neighbors, returnsOneIfOnlyTopNeighborIsAlive) {
     EXPECT_EQ(countNeighbors(grid, row, col), 1);
 
 }
+TEST(neighbors, returnsOneIfOnlyBottomNeighborIsAlive) {
+
+    bool grid[NUM_ROWS][NUM_COLS] = {false};
+
+    grid[2][1] = true;
+
+    int row = 1;
+    int col = 1;
+
+    EXPECT_EQ(countNeighbors(grid, row, col), 1);
+
+}

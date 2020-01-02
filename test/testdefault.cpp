@@ -9,9 +9,21 @@ TEST(neighbors, liveCellWithFewerThanTwoLiveNeighborsDies) {
 
     EXPECT_EQ(applyRules(cellIsAlive, neighborCount), false);
 }
-TEST(neighbors, liveCellWithTwoOrThreeLiveNeighborsLives) {
+TEST(neighbors, liveCellWithTwoLiveNeighborsLives) {
     bool cellIsAlive = true;
     int neighborCount = 2;
 
     EXPECT_EQ(applyRules(cellIsAlive, neighborCount), true);
+}
+TEST(neighbors, liveCellWithTrheeLiveNeighborsLives) {
+    bool cellIsAlive = true;
+    int neighborCount = 3;
+
+    EXPECT_EQ(applyRules(cellIsAlive, neighborCount), true);
+}
+TEST(neighbors, liveCellWithMoreThanThreeLiveNeighborsDies) {
+    bool cellIsAlive = true;
+    int neighborCount = 4;
+
+    EXPECT_EQ(applyRules(cellIsAlive, neighborCount), false);
 }

@@ -12,3 +12,11 @@ bool applyRules(bool cellIsAlive, int numberOfNeighbors) {
     return false;
 
 }
+
+int countNeighbors(bool grid[NUM_ROWS][NUM_COLS], int row, int col) {
+
+    if(grid[row][col+1])
+        return 1;
+
+    return 0;
+}

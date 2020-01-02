@@ -44,7 +44,7 @@ TEST(neighbors, deadCellWithTwoNeighborsStaysDead) {
 }
 TEST(neighbors, returnsOneIfOnlyRightNeighborIsAlive) {
 
-    bool grid[NUM_ROWS][NUM_COLS];
+    bool grid[NUM_ROWS][NUM_COLS] = {false};
 
     grid[1][2] = true;
 
@@ -52,5 +52,32 @@ TEST(neighbors, returnsOneIfOnlyRightNeighborIsAlive) {
     int col = 1;
 
     EXPECT_EQ(countNeighbors(grid, row, col), 1);
+
+}
+
+TEST(neighbors, returnsOneIfOnlyLeftNeighborIsAlive) {
+
+    bool grid[NUM_ROWS][NUM_COLS] = {false};
+
+    grid[1][0] = true;
+
+    int row = 1;
+    int col = 1;
+
+    EXPECT_EQ(countNeighbors(grid, row, col), 1);
+
+}
+
+TEST(neighbors, returnsTwoIfLeftAndRightNeighborsAlive) {
+
+    bool grid[NUM_ROWS][NUM_COLS] = {false};
+
+    grid[1][0] = true;
+    grid[1][2] = true;
+
+    int row = 1;
+    int col = 1;
+
+    EXPECT_EQ(countNeighbors(grid, row, col), 2);
 
 }

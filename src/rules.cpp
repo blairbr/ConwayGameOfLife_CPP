@@ -15,8 +15,15 @@ bool applyRules(bool cellIsAlive, int numberOfNeighbors) {
 
 int countNeighbors(bool grid[NUM_ROWS][NUM_COLS], int row, int col) {
 
-    if(grid[row][col+1])
-        return 1;
+    int neighbors = 0;
+    if(grid[row][col+1] == true)
+    {
+        neighbors+= 1;
+    }
+    if(grid[row][col-1] == true)
+    {
+        neighbors+= 1;
+    }
 
-    return 0;
+    return neighbors;
 }

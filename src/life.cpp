@@ -8,8 +8,8 @@ bool altGrid[NUM_ROWS][NUM_COLS];
 
 void gameSetup()
 {
-    analogRead(7);
-    randomSeed(42);
+    int analogReadResult = analogRead(7);
+    randomSeed(analogReadResult);
 }
 
 bool applyRules(bool cellIsAlive, int numberOfNeighbors) {

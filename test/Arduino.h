@@ -3,6 +3,8 @@
 
 #include <stdint.h>
 
+#define ANALOG_READ_RESULT 37
+
 extern int numCallsToRandSeed;
 extern int numCallsToAnalogRead;
 extern uint8_t pinNumPassedToAnalogRead;

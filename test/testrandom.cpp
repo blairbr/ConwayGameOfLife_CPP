@@ -20,7 +20,7 @@ TEST_F(random, shouldCallRandomSeedOnce)
 TEST_F(random, shouldPassCorrectValueToRandomSeed)
 {
     gameSetup();
-    EXPECT_EQ(numPassedToRandSeed, 42);
+    EXPECT_EQ(numPassedToRandSeed, ANALOG_READ_RESULT);
 }
 
 TEST_F(random, shouldCallAnalogRead)
@@ -33,6 +33,12 @@ TEST_F(random, shouldPassCorrectPinNumberToAnalogRead)
 {
     gameSetup();
     EXPECT_EQ(pinNumPassedToAnalogRead, 7);
+}
+
+TEST_F(random, randomSeedIsCalledWithValueFromAnalogRead)
+{
+    gameSetup();
+    EXPECT_EQ(numPassedToRandSeed, ANALOG_READ_RESULT);
 }
 
 // TEST_F(display, setsRightNumberOfPixels) {

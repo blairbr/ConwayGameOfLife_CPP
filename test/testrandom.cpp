@@ -41,6 +41,12 @@ TEST_F(random, randomSeedIsCalledWithValueFromAnalogRead)
     EXPECT_EQ(numPassedToRandSeed, ANALOG_READ_RESULT);
 }
 
+TEST_F(random, gridCreationCallsRandomCorrectNumberOfTimes)
+{
+    gameSetup();
+    EXPECT_EQ(numTimesRandomCalled, sizeof(grid));
+}
+
 // TEST_F(display, setsRightNumberOfPixels) {
 
 //     grid[1][1] = true;

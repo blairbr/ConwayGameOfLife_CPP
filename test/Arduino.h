@@ -5,6 +5,7 @@
 
 extern int numCallsToRandSeed;
 extern int numCallsToAnalogRead;
+extern uint8_t pinNumPassedToAnalogRead;
 extern unsigned long numPassedToRandSeed;
 void randomSeed(unsigned long);
 int analogRead(uint8_t pin);

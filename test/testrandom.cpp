@@ -29,6 +29,12 @@ TEST_F(random, shouldCallAnalogRead)
     EXPECT_EQ(numCallsToAnalogRead, 1);
 }
 
+TEST_F(random, shouldPassCorrectPinNumberToAnalogRead)
+{
+    gameSetup();
+    EXPECT_EQ(pinNumPassedToAnalogRead, 7);
+}
+
 // TEST_F(display, setsRightNumberOfPixels) {
 
 //     grid[1][1] = true;

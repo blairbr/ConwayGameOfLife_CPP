@@ -8,7 +8,7 @@ bool altGrid[NUM_ROWS][NUM_COLS];
 
 void gameSetup()
 {
-    analogRead(0);
+    analogRead(7);
     randomSeed(42);
 }
 

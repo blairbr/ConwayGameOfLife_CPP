@@ -27,12 +27,6 @@ void setup() {
   memset(grid, false, sizeof(grid));
   matrix.begin();
 
-  for(int x = 0; x < 64; x++)
-    for(int y = 0; y < 32; y++)
-    {
-      grid[x][y] = !(random(3) < 2);
-      altGrid[x][y] = !(random(3) < 1);
-    }
 }
 
 void loop() {

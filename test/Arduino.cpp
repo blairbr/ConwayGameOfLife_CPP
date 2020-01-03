@@ -28,5 +28,5 @@ int analogRead(uint8_t pin) {
 long random(long upperBound) 
 {
     numTimesRandomCalled++;
-    return 9;
+    return 1;
 }

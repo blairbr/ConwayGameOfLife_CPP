@@ -44,7 +44,30 @@ TEST_F(random, randomSeedIsCalledWithValueFromAnalogRead)
 TEST_F(random, gridCreationCallsRandomCorrectNumberOfTimes)
 {
     gameSetup();
-    EXPECT_EQ(numTimesRandomCalled, sizeof(grid));
+    EXPECT_EQ(numTimesRandomCalled, 2 * sizeof(grid));
+}
+
+TEST_F(random, mainGridIsFullOfRandomZeroes) {
+
+gameSetup();
+bool expectedGrid [NUM_ROWS][NUM_COLS];
+memset(expectedGrid, false, sizeof(expectedGrid));
+
+int result = memcmp(expectedGrid, grid, sizeof(grid));
+
+EXPECT_EQ(0, result);
+}
+
+TEST_F(random, altGridIsFullOfRandomOnes) {
+
+gameSetup();
+
+bool expectedGrid [NUM_ROWS][NUM_COLS];
+memset(expectedGrid, true, sizeof(expectedGrid));
+
+int result = memcmp(expectedGrid, altGrid, sizeof(altGrid));
+
+EXPECT_EQ(0, result);
 }
 
 // TEST_F(display, setsRightNumberOfPixels) {

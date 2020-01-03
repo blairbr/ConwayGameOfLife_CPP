@@ -10,11 +10,13 @@ void gameSetup()
 {
     int analogReadResult = analogRead(EMPTY_ANALOG_READ_PIN);
     randomSeed(analogReadResult);
-    for (int i = 0; i < sizeof(grid); i++)
-    {
-        long result = random(2);
-    }
     
+    for(int x = 0; x < 64; x++)
+        for(int y = 0; y < 32; y++)
+        {
+           grid[x][y] = random(3) >= 2;
+           altGrid[x][y] = random(3) >= 1;
+        }
 }
 
 bool applyRules(bool cellIsAlive, int numberOfNeighbors) {

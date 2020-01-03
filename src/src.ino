@@ -1,6 +1,6 @@
 
 #include <RGBmatrixPanel.h>
-#include "src/life.h"
+#include "life.h"
 // Most of the signal pins are configurable, but the CLK pin has some
 // special constraints.  On 8-bit AVR boards it must be on PORTB...
 // Pin 8 works on the Arduino Uno & compatibles (e.g. Adafruit Metro),
@@ -23,34 +23,37 @@
 RGBmatrixPanel matrix(A, B, C, D, CLK, LAT, OE, false, 64);
 
 void setup() {
-
-  memset(grid, false, sizeof(grid));
   matrix.begin();
+  gameSetup();
+  
 
 }
 
 void loop() {
 
     bool *active;
-    active = &(grid[0][0]);
+    active = (bool *)grid;
 
     display(active);
-    delay(1000);
+    delay(5000);
 
-    active = &altGrid[0][0];
+    active = (bool *)altGrid;
 
     display(active);
-    delay(1000);
+    delay(5000);
     
 }
 
-void display(bool* active)
+void display(bool *active)
 {
-  for(int x = 0; x < 64; x++)
-        for(int y = 0; y < 32; y++)
+  for(int x = 0; x < NUM_ROWS; x++)
+  {
+        for(int y = 0; y < NUM_COLS; y++)
       {
-        bool *cellIsAlive = active+(x*y);
+        bool *cellIsAlive = active+(x*NUM_COLS + y);
         matrix.drawPixel(x, y, matrix.Color333(0 , 0, *cellIsAlive * 7));
 
       }
+  }
+  matrix.drawPixel(2,2, matrix.Color333(7,0,0));
 }

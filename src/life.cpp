@@ -1,5 +1,7 @@
 #include "life.h"
 #include "Arduino.h"
+#include "string.h"
+
 
 bool grid[NUM_ROWS][NUM_COLS];
 bool altGrid[NUM_ROWS][NUM_COLS];
@@ -8,15 +10,21 @@ bool altGrid[NUM_ROWS][NUM_COLS];
 
 void gameSetup()
 {
+
+    memset(grid, false, sizeof(grid));
+    memset(altGrid, false, sizeof(altGrid));
+    
     int analogReadResult = analogRead(EMPTY_ANALOG_READ_PIN);
     randomSeed(analogReadResult);
     
-    for(int x = 0; x < 64; x++)
-        for(int y = 0; y < 32; y++)
+    for(int x = 0; x < NUM_ROWS; x++)
+    {
+        for(int y = 0; y < NUM_COLS; y++)
         {
-           grid[x][y] = random(3) >= 2;
-           altGrid[x][y] = random(3) >= 1;
+           grid[x][y] = random(3) == 2;
+           altGrid[x][y] = random(3) > 0;
         }
+    }
 }
 
 bool applyRules(bool cellIsAlive, int numberOfNeighbors) {

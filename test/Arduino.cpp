@@ -5,6 +5,7 @@ int numCallsToAnalogRead;
 uint8_t pinNumPassedToAnalogRead;
 unsigned long numPassedToRandSeed;
 int numTimesRandomCalled;
+int randomToReturn;
 
 void mockInit() {
     numCallsToRandSeed = 0;
@@ -12,6 +13,7 @@ void mockInit() {
     numTimesRandomCalled = 0;
     pinNumPassedToAnalogRead = UINT8_MAX;
     numPassedToRandSeed = __LONG_MAX__;
+    randomToReturn = 1;
 }
 
 void randomSeed(unsigned long number) {
@@ -28,5 +30,5 @@ int analogRead(uint8_t pin) {
 long random(long upperBound) 
 {
     numTimesRandomCalled++;
-    return 1;
+    return randomToReturn;
 }

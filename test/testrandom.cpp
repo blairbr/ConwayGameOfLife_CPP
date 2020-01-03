@@ -70,6 +70,7 @@ int result = memcmp(expectedGrid, altGrid, sizeof(altGrid));
 EXPECT_EQ(0, result);
 }
 
+
 // TEST_F(display, setsRightNumberOfPixels) {
 
 //     grid[1][1] = true;

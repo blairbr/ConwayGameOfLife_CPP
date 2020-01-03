@@ -1,4 +1,6 @@
-#include "rules.h"
+#include "life.h"
+
+bool grid[NUM_ROWS][NUM_COLS];
 
 bool applyRules(bool cellIsAlive, int numberOfNeighbors) {
     if(numberOfNeighbors ==2 && !cellIsAlive)
@@ -13,7 +15,7 @@ bool applyRules(bool cellIsAlive, int numberOfNeighbors) {
 
 }
 
-int countNeighbors(bool grid[NUM_ROWS][NUM_COLS], int row, int col) {
+int countNeighbors(int row, int col) {
 
     int neighbors = 0;
     if(grid[row][col+1])

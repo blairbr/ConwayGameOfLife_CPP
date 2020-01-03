@@ -43,8 +43,8 @@ TEST(neighbors, deadCellWithTwoNeighborsStaysDead) {
 }
 TEST(neighbors, returnsOneIfOnlyRightNeighborIsAlive) {
 
-    bool grid[NUM_ROWS][NUM_COLS] = {false};
-
+    bool grid[NUM_ROWS][NUM_COLS];
+    memset(grid, false, sizeof(grid));
     grid[1][2] = true;
 
     int row = 1;
@@ -56,8 +56,8 @@ TEST(neighbors, returnsOneIfOnlyRightNeighborIsAlive) {
 
 TEST(neighbors, returnsOneIfOnlyLeftNeighborIsAlive) {
 
-    bool grid[NUM_ROWS][NUM_COLS] = {false};
-
+    bool grid[NUM_ROWS][NUM_COLS];
+    memset(grid, false, sizeof(grid));
     grid[1][0] = true;
 
     int row = 1;
@@ -69,8 +69,8 @@ TEST(neighbors, returnsOneIfOnlyLeftNeighborIsAlive) {
 
 TEST(neighbors, returnsTwoIfLeftAndRightNeighborsAlive) {
 
-    bool grid[NUM_ROWS][NUM_COLS] = {false};
-
+    bool grid[NUM_ROWS][NUM_COLS];
+    memset(grid, false, sizeof(grid));
     grid[1][0] = true;
     grid[1][2] = true;
 
@@ -82,8 +82,8 @@ TEST(neighbors, returnsTwoIfLeftAndRightNeighborsAlive) {
 }
 TEST(neighbors, returnsOneIfOnlyTopNeighborIsAlive) {
 
-    bool grid[NUM_ROWS][NUM_COLS] = {false};
-
+    bool grid[NUM_ROWS][NUM_COLS];
+    memset(grid, false, sizeof(grid));
     grid[0][1] = true;
 
     int row = 1;
@@ -94,8 +94,8 @@ TEST(neighbors, returnsOneIfOnlyTopNeighborIsAlive) {
 }
 TEST(neighbors, returnsOneIfOnlyBottomNeighborIsAlive) {
 
-    bool grid[NUM_ROWS][NUM_COLS] = {false};
-
+    bool grid[NUM_ROWS][NUM_COLS];
+    memset(grid, false, sizeof(grid));
     grid[2][1] = true;
 
     int row = 1;
@@ -107,8 +107,8 @@ TEST(neighbors, returnsOneIfOnlyBottomNeighborIsAlive) {
 
 TEST(neighbors, returnsOneIfOnlyTopLeftNeighborIsAlive) {
 
-    bool grid[NUM_ROWS][NUM_COLS] = {false};
-
+    bool grid[NUM_ROWS][NUM_COLS];
+    memset(grid, false, sizeof(grid));
     grid[0][0] = true;
 
     int row = 1;
@@ -120,8 +120,8 @@ TEST(neighbors, returnsOneIfOnlyTopLeftNeighborIsAlive) {
 
 TEST(neighbors, returnsOneIfOnlyTopRightNeighborIsAlive) {
 
-    bool grid[NUM_ROWS][NUM_COLS] = {false};
-
+    bool grid[NUM_ROWS][NUM_COLS];
+    memset(grid, false, sizeof(grid));
     grid[0][2] = true;
 
     int row = 1;
@@ -133,8 +133,8 @@ TEST(neighbors, returnsOneIfOnlyTopRightNeighborIsAlive) {
 
 TEST(neighbors, returnsOneIfOnlyBottomLeftNeighborIsAlive) {
 
-    bool grid[NUM_ROWS][NUM_COLS] = {false};
-
+    bool grid[NUM_ROWS][NUM_COLS];
+    memset(grid, false, sizeof(grid));
     grid[2][0] = true;
 
     int row = 1;

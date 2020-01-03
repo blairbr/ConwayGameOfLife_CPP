@@ -1,47 +1,55 @@
+#include "Arduino.h"
 #include <gtest/gtest.h>
 #include "life.h"
 
 using namespace ::testing;
 
-TEST(neighbors, liveCellWithFewerThanTwoLiveNeighborsDies) {
+class neighbors : public ::testing::Test {
+ protected:
+  void SetUp() override {
+     mockInit();
+  }
+};
+
+TEST_F(neighbors, liveCellWithFewerThanTwoLiveNeighborsDies) {
     bool cellIsAlive = true;
     int neighborCount = 1;
 
     EXPECT_EQ(applyRules(cellIsAlive, neighborCount), false);
 }
-TEST(neighbors, liveCellWithTwoLiveNeighborsLives) {
+TEST_F(neighbors, liveCellWithTwoLiveNeighborsLives) {
     bool cellIsAlive = true;
     int neighborCount = 2;
 
     EXPECT_EQ(applyRules(cellIsAlive, neighborCount), true);
 }
-TEST(neighbors, liveCellWithTrheeLiveNeighborsLives) {
+TEST_F(neighbors, liveCellWithTrheeLiveNeighborsLives) {
     bool cellIsAlive = true;
     int neighborCount = 3;
 
     EXPECT_EQ(applyRules(cellIsAlive, neighborCount), true);
 }
-TEST(neighbors, liveCellWithMoreThanThreeLiveNeighborsDies) {
+TEST_F(neighbors, liveCellWithMoreThanThreeLiveNeighborsDies) {
     bool cellIsAlive = true;
     int neighborCount = 4;
 
     EXPECT_EQ(applyRules(cellIsAlive, neighborCount), false);
 }
-TEST(neighbors, deadCellWithThreeNeighborsComesToLife) {
+TEST_F(neighbors, deadCellWithThreeNeighborsComesToLife) {
     bool cellIsAlive = false;
     int neighborCount = 3;
 
     EXPECT_EQ(applyRules(cellIsAlive, neighborCount), true);
 
 }
-TEST(neighbors, deadCellWithTwoNeighborsStaysDead) {
+TEST_F(neighbors, deadCellWithTwoNeighborsStaysDead) {
     bool cellIsAlive = false;
     int neighborCount = 2;
 
     EXPECT_EQ(applyRules(cellIsAlive, neighborCount), false);
 
 }
-TEST(neighbors, returnsOneIfOnlyRightNeighborIsAlive) {
+TEST_F(neighbors, returnsOneIfOnlyRightNeighborIsAlive) {
 
     memset(grid, false, sizeof(grid));
     grid[1][2] = true;
@@ -53,7 +61,7 @@ TEST(neighbors, returnsOneIfOnlyRightNeighborIsAlive) {
 
 }
 
-TEST(neighbors, returnsOneIfOnlyLeftNeighborIsAlive) {
+TEST_F(neighbors, returnsOneIfOnlyLeftNeighborIsAlive) {
 
     memset(grid, false, sizeof(grid));
     grid[1][0] = true;
@@ -65,7 +73,7 @@ TEST(neighbors, returnsOneIfOnlyLeftNeighborIsAlive) {
 
 }
 
-TEST(neighbors, returnsTwoIfLeftAndRightNeighborsAlive) {
+TEST_F(neighbors, returnsTwoIfLeftAndRightNeighborsAlive) {
 
     memset(grid, false, sizeof(grid));
     grid[1][0] = true;
@@ -77,7 +85,7 @@ TEST(neighbors, returnsTwoIfLeftAndRightNeighborsAlive) {
     EXPECT_EQ(countNeighbors(row, col), 2);
 
 }
-TEST(neighbors, returnsOneIfOnlyTopNeighborIsAlive) {
+TEST_F(neighbors, returnsOneIfOnlyTopNeighborIsAlive) {
 
     memset(grid, false, sizeof(grid));
     grid[0][1] = true;
@@ -88,7 +96,7 @@ TEST(neighbors, returnsOneIfOnlyTopNeighborIsAlive) {
     EXPECT_EQ(countNeighbors(row, col), 1);
 
 }
-TEST(neighbors, returnsOneIfOnlyBottomNeighborIsAlive) {
+TEST_F(neighbors, returnsOneIfOnlyBottomNeighborIsAlive) {
 
     memset(grid, false, sizeof(grid));
     grid[2][1] = true;
@@ -100,7 +108,7 @@ TEST(neighbors, returnsOneIfOnlyBottomNeighborIsAlive) {
 
 }
 
-TEST(neighbors, returnsOneIfOnlyTopLeftNeighborIsAlive) {
+TEST_F(neighbors, returnsOneIfOnlyTopLeftNeighborIsAlive) {
 
     memset(grid, false, sizeof(grid));
     grid[0][0] = true;
@@ -112,7 +120,7 @@ TEST(neighbors, returnsOneIfOnlyTopLeftNeighborIsAlive) {
 
 }
 
-TEST(neighbors, returnsOneIfOnlyTopRightNeighborIsAlive) {
+TEST_F(neighbors, returnsOneIfOnlyTopRightNeighborIsAlive) {
 
     memset(grid, false, sizeof(grid));
     grid[0][2] = true;
@@ -124,7 +132,7 @@ TEST(neighbors, returnsOneIfOnlyTopRightNeighborIsAlive) {
 
 }
 
-TEST(neighbors, returnsOneIfOnlyBottomLeftNeighborIsAlive) {
+TEST_F(neighbors, returnsOneIfOnlyBottomLeftNeighborIsAlive) {
 
     memset(grid, false, sizeof(grid));
     grid[2][0] = true;
@@ -136,7 +144,7 @@ TEST(neighbors, returnsOneIfOnlyBottomLeftNeighborIsAlive) {
 
 }
 
-// TEST(display, setsRightNumberOfPixels) {
+// TEST_F(display, setsRightNumberOfPixels) {
 
 //     grid[1][1] = true;
 //     grid[2][2] = true;

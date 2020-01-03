@@ -3,7 +3,7 @@
 bool grid[NUM_ROWS][NUM_COLS];
 
 bool applyRules(bool cellIsAlive, int numberOfNeighbors) {
-    if(numberOfNeighbors ==2 && !cellIsAlive)
+    if(numberOfNeighbors == 2 && !cellIsAlive)
     {
         return false;
     }
@@ -12,7 +12,6 @@ bool applyRules(bool cellIsAlive, int numberOfNeighbors) {
         return true;
     }
     return false;
-
 }
 
 int countNeighbors(int row, int col) {

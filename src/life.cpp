@@ -4,11 +4,11 @@
 bool grid[NUM_ROWS][NUM_COLS];
 bool altGrid[NUM_ROWS][NUM_COLS];
 
-
+#define EMPTY_ANALOG_READ_PIN 7
 
 void gameSetup()
 {
-    int analogReadResult = analogRead(7);
+    int analogReadResult = analogRead(EMPTY_ANALOG_READ_PIN);
     randomSeed(analogReadResult);
 }
 

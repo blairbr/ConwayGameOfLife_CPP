@@ -31,13 +31,32 @@ void setup() {
     for(int y = 0; y < 32; y++)
     {
       grid[x][y] = !(random(3) < 2);
-      matrix.drawPixel(x, y, matrix.Color333(0 , grid[x][y] * 7, 0));
+      altGrid[x][y] = !(random(3) < 1);
     }
-
-  
 }
 
 void loop() {
-  // Do nothing -- image doesn't change
+
+    bool *active;
+    active = &(grid[0][0]);
+
+    display(active);
+    delay(1000);
+
+    active = &altGrid[0][0];
+
+    display(active);
+    delay(1000);
     
+}
+
+void display(bool* active)
+{
+  for(int x = 0; x < 64; x++)
+        for(int y = 0; y < 32; y++)
+      {
+        bool *cellIsAlive = active+(x*y);
+        matrix.drawPixel(x, y, matrix.Color333(0 , 0, *cellIsAlive * 7));
+
+      }
 }

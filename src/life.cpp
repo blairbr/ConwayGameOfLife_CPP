@@ -1,6 +1,7 @@
 #include "life.h"
 
 bool grid[NUM_ROWS][NUM_COLS];
+bool altGrid[NUM_ROWS][NUM_COLS];
 
 bool applyRules(bool cellIsAlive, int numberOfNeighbors) {
     if(numberOfNeighbors == 2 && !cellIsAlive)

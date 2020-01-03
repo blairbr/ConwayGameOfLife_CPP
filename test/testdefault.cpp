@@ -135,3 +135,16 @@ TEST(neighbors, returnsOneIfOnlyBottomLeftNeighborIsAlive) {
     EXPECT_EQ(countNeighbors(row, col), 1);
 
 }
+
+// TEST(display, setsRightNumberOfPixels) {
+
+//     grid[1][1] = true;
+//     grid[2][2] = true;
+//     grid[3][3] = true;
+//     grid[14][4] = true;
+//     grid[5][5] = true;
+
+//     testMatrix.display(grid);
+
+//     EXPECT_EQ(testMatrix.getPixelAssignmentCount(), 5);
+// }
